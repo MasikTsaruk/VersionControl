@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Version{% endblock %}
+
+{% block body %}
+    <h1>Version</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ version.id }}</td>
+            </tr>
+            <tr>
+                <th>Version</th>
+                <td>{{ version.version }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ version.createdAt ? version.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_version_index') }}">back to list</a>
+
+    <a href="{{ path('app_version_edit', {'id': version.id}) }}">edit</a>
+
+    {{ include('version/_delete_form.html.twig') }}
+{% endblock %}

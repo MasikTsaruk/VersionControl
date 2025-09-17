@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}App index{% endblock %}
+
+{% block body %}
+    <h1>App index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Uuid</th>
+                <th>Name</th>
+                <th>Env</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for app in apps %}
+            <tr>
+                <td>{{ app.id }}</td>
+                <td>{{ app.uuid }}</td>
+                <td>{{ app.name }}</td>
+                <td>
+                    {% for en in app.envs %}
+                        <ul>
+                            <li>{{ en.name }}</li>
+                            {% for item in en.versions %}
+                                <ul>
+                                    <li> 
+                                        Version : {{item.version}} Time: {{ item.createdAt ? item.createdAt|date('Y-m-d H:i:s') : '' }}</li>
+                                </ul>
+                            {% endfor %}
+                        <ul>
+                    {% endfor %}
+                </td>
+                <td>
+                    <a href="{{ path('app_app_show', {'id': app.id}) }}">show</a>
+                    <a href="{{ path('app_app_edit', {'id': app.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_app_new') }}">Create new</a>
+{% endblock %}

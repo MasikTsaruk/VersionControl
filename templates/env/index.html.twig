@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Env index{% endblock %}
+
+{% block body %}
+    <h1>Env index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Uuid</th>
+                <th>Name</th>
+                <th>Apps</th>
+                <th>Versions</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for env in envs %}
+            <tr>
+                <td>{{ env.id }}</td>
+                <td>{{ env.uuid }}</td>
+                <td>{{ env.name }}</td>
+                <td>{{ env.app.name }}</td>
+                <td>{% for vers in env.versions %}
+                        {{ vers.version }}, 
+                    {% endfor %}
+                </td>
+                <td>
+                    <a href="{{ path('app_env_show', {'id': env.id}) }}">show</a>
+                    <a href="{{ path('app_env_edit', {'id': env.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_env_new') }}">Create new</a>
+{% endblock %}
