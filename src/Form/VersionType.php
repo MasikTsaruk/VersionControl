@@ -20,7 +20,7 @@ class VersionType extends AbstractType
             ])
             ->add('env', EntityType::class, [
                 'class' => env::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
             ])
         ;
     }

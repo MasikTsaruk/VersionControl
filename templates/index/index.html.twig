@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Get {{app.name}}{% endblock %}
+{% block body %}
+<ul>
+    {% for env in app.envs %}
+    <li>
+        {{env.name}}
+        {{ env.versions|last.version }}
+    <li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

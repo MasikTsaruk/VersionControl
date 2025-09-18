@@ -22,8 +22,8 @@
                 <td>{{ app.uuid }}</td>
                 <td>{{ app.name }}</td>
                 <td>
-                    {% for en in app.envs %}
-                        <ul>
+                    <ul>
+                        {% for en in app.envs %}
                             <li>{{ en.name }}</li>
                             {% for item in en.versions %}
                                 <ul>
@@ -31,8 +31,8 @@
                                         Version : {{item.version}} Time: {{ item.createdAt ? item.createdAt|date('Y-m-d H:i:s') : '' }}</li>
                                 </ul>
                             {% endfor %}
-                        <ul>
-                    {% endfor %}
+                        {% endfor %}
+                    <ul>
                 </td>
                 <td>
                     <a href="{{ path('app_app_show', {'id': app.id}) }}">show</a>
