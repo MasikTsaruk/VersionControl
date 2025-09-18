@@ -28,8 +28,8 @@
                     {% endfor %}
                 </td>
                 <td>
-                    <a href="{{ path('app_env_show', {'id': env.id}) }}">show</a>
-                    <a href="{{ path('app_env_edit', {'id': env.id}) }}">edit</a>
+                    <a href="{{ path('app_env_show', {'id': env.id}) }}" class="btn btn-success">show</a>
+                    <a href="{{ path('app_env_edit', {'id': env.id}) }}" class="btn btn-primary">edit</a>
                 </td>
             </tr>
         {% else %}
