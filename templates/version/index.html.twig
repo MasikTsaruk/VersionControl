@@ -11,7 +11,7 @@
                 <th>Id</th>
                 <th>Version</th>
                 <th>Created_at</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,8 +21,8 @@
                 <td>{{ version.version }}</td>
                 <td>{{ version.createdAt ? version.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_version_show', {'id': version.id}) }}" class="btn btn-success">show</a>
-                    <a href="{{ path('app_version_edit', {'id': version.id}) }}" class="btn btn-primary">edit</a>
+                    <a href="{{ path('app_version_show', {'id': version.id}) }}" class="btn btn-success">Show</a>
+                    <a href="{{ path('app_version_edit', {'id': version.id}) }}" class="btn btn-primary">Edit</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_version_new') }}">Create new</a>
+    <a href="{{ path('app_version_new') }}" class="btn btn-outline-success">Create new</a>
 {% endblock %}

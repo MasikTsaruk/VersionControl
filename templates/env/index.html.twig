@@ -13,7 +13,7 @@
                 <th>Name</th>
                 <th>Apps</th>
                 <th>Versions</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -28,8 +28,8 @@
                     {% endfor %}
                 </td>
                 <td>
-                    <a href="{{ path('app_env_show', {'id': env.id}) }}" class="btn btn-success">show</a>
-                    <a href="{{ path('app_env_edit', {'id': env.id}) }}" class="btn btn-primary">edit</a>
+                    <a href="{{ path('app_env_show', {'id': env.id}) }}" class="btn btn-success">Show</a>
+                    <a href="{{ path('app_env_edit', {'id': env.id}) }}" class="btn btn-primary">Edit</a>
                 </td>
             </tr>
         {% else %}
@@ -40,5 +40,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_env_new') }}">Create new</a>
+    <a href="{{ path('app_env_new') }}" class="btn btn-outline-success">Create new</a>
 {% endblock %}
