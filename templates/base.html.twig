@@ -14,10 +14,16 @@
         {% endblock %}
     </head>
     <body>
-    <nav>
-        <a href="{{ path('app_app_index') }}">App</a>
-        <a href="{{ path('app_env_index') }}">Env</a>
-        <a href="{{ path('app_version_index') }}">Versions</a>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ path('app_app_index') }}/">Apps</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ path('app_env_index') }}/">Envs</a>
+        </li>
+    </div>
+  </div>
     </nav>
         {% block body %}{% endblock %}
     </body>
