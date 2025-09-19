@@ -1,0 +1,10 @@
+{
+    "symfony.enabled": true,
+    "indexer.exclude_patterns": [
+        "/vendor/**/Tests/**/*",
+        "/vendor/**/tests/**/*",
+        "/var/cache/**/*",
+        "/vendor/composer/**/*"
+    ],
+    "language_server_php_cs_fixer.enabled": true
+}
