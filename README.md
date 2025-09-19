@@ -11,21 +11,16 @@ http://127.0.0.1:8000/app
 http://127.0.0.1:8000/env
 ```
 
-## CRUD page Version
-```
-http://127.0.0.1:8000/version
-
-```
 
 ## API Version Request Route
 
 ```
-http://127.0.0.1:8000/api/env/{{uuid}}/deployment
+http://127.0.0.1:8000/api/{{uuid}}/deployment
 ```
 
 ## Get Last versions of Applications Environments
 ```
-http://127.0.0.1:8000/control/{{uuid}}
+http://127.0.0.1:8000/{{uuid}}
 ```
 
 
