@@ -32,7 +32,7 @@ class App
     public function __construct()
     {
         $this->envs = new ArrayCollection();
-        $this->uuid = Uuid::v1();
+        $this->uuid = Uuid::v4();
     }
 
     public function getId(): ?int

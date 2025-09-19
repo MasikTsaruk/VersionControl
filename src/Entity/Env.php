@@ -8,8 +8,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Uid\Uuid;
-
-
 #[ORM\Entity(repositoryClass: EnvRepository::class)]
 class Env
 {
@@ -37,7 +35,7 @@ class Env
     public function __construct()
     {
         $this->versions = new ArrayCollection();
-        $this->uuid = Uuid::v1();
+        $this->uuid = Uuid::v4();
     }
 
     public function getId(): ?int
