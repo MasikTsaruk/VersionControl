@@ -3,15 +3,15 @@
 namespace App\Controller;
 
 use App\Repository\AppRepository;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Psr\Log\LoggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/')]
 final class IndexController extends AbstractController
 {
-    #[Route(path: '{uuid}/', name: 'get_app_info', methods :['GET'])]
+    #[Route(path: '{uuid}/', name: 'get_app_info', methods : ['GET'])]
     public function index_page(string $uuid, LoggerInterface $logger, AppRepository $appRepository): Response
     {
         $app = $appRepository->findOneBy(['uuid' => $uuid]);

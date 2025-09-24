@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Uid\Uuid;
+
 #[ORM\Entity(repositoryClass: EnvRepository::class)]
 class Env
 {
@@ -24,7 +25,7 @@ class Env
 
     #[ORM\ManyToOne(inversedBy: 'envs')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?app $app = null;
+    private ?App $app = null;
 
     /**
      * @var Collection<int, Version>
@@ -67,12 +68,12 @@ class Env
         return $this;
     }
 
-    public function getApp(): ?app
+    public function getApp(): ?App
     {
         return $this->app;
     }
 
-    public function setApp(?app $app): static
+    public function setApp(?App $app): static
     {
         $this->app = $app;
 

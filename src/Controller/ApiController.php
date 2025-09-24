@@ -5,16 +5,16 @@ namespace App\Controller;
 use App\Entity\Version;
 use App\Repository\EnvRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Psr\Log\LoggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/api')]
 final class ApiController extends AbstractController
 {
-    #[Route('/{uuid}/deployment', name:'deployment_post', methods: ['POST'])]
+    #[Route('/{uuid}/deployment', name: 'deployment_post', methods: ['POST'])]
     public function deployment_post(Request $request, string $uuid, LoggerInterface $logger, EnvRepository $envRepository, EntityManagerInterface $em): JsonResponse
     {
         $response = json_decode($request->getContent(), true);
@@ -28,7 +28,7 @@ final class ApiController extends AbstractController
         $logger->info($env->getName());
         $em->persist($version);
         $em->flush();
+
         return new JsonResponse($response);
     }
-
 }
